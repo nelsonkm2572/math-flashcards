@@ -1,38 +1,254 @@
-.App {
-  text-align: center;
+html {
+    min-width: 305px;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    background-color: #FFE1FF;
+    word-wrap: break-word;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+#root {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.cards-root {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    flex-grow: 1;
+}
+.welcome-header {
+    flex-basis: 100%;
+    font-size: 50px;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    box-sizing: border-box;
+    background-color: fuchsia;
+    height: 175px;
+    margin: 0;
+    padding: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
 }
 
-.App-link {
-  color: #61dafb;
+.welcome-header-title {
+    flex-grow: 1;
+    align-self: center;
+    justify-self: start;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.welcome-header-title header {
+    margin-bottom: 10px;
+    padding: 0;
+}
+
+.help-text {
+    display: flex;
+    font-size: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.help-text p {
+    margin: 0;
+    padding: 0;
+}
+
+.welcome-header-maker {
+    align-self: center;
+    height: 126px;
+    width: 120px;
+    box-sizing: border-box;
+    margin-right: 25px;
+    padding: 0;
+}
+
+.welcome-header-maker:hover, .card-edit-buttons-delete:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+.welcome-header-maker-img {
+    height: 125px;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.loading {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 25px;
+    border-radius: 10px;
+    background-color: green;
+    opacity: 0;
+    animation: spin .25s infinite linear;
+}
+
+@keyframes spin {
+    0% {opacity: 0;}
+    50% {opacity: .5;}
+    100% {opacity: 1;}
+}
+
+.card {
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-basis: 275px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    background-color: #FF7F27;
+    font-size: 50px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    margin: 10px;
+    padding: 0;
+    width: 275px;
+    height: 300px;
+}
+
+.card-front-numbers, .card-front-numbers-edit {
+    box-sizing: border-box;
+    margin: 10px;
+    height: 50px;
+    width: 115px;
+    text-align: center;
+}
+
+.card-front-numbers-edit {
+    font-size: 50px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    border: none;
+    opacity: .5;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+.card-front-operator, .card-front-operator-edit {
+    box-sizing: border-box;
+    margin: 0;
+    height: 50px;
+    width: 115px;
+    text-align: center;
+}
+
+.card-front-operator-edit {
+    width: 135px;
+    font-size: 50px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    border: none;
+    opacity: .5;
+}
+
+.card-edit-buttons {
+    font-size: 15px;
+}
+
+.card-front-edit, .card-edit-buttons-save, .card-edit-buttons-cancel, .card-edit-buttons-delete, .card-front-flip {
+    cursor: pointer;
+    position: absolute;
+    height: 30px;
+    width: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.card-edit-buttons-save {
+    bottom: 5px;
+    left: 5px;
+}
+
+.card-front-edit:hover, .card-edit-buttons-save:hover, .card-edit-buttons-cancel:hover, .card-front-flip:hover {
+    cursor: pointer;
+    transform: scale(1.25);
+}
+
+.card-front-edit-img, .card-edit-buttons-save-img, .card-edit-buttons-cancel-img,
+.card-edit-buttons-delete-img, .card-front-flip-img {
+    height: 25px;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.card-edit-buttons-cancel, .card-front-edit {
+    top: 5px;
+    right: 5px;
+}
+
+.card-edit-buttons-delete, .card-front-flip {
+    bottom: 5px;
+    right: 5px;
+}
+
+@media only screen and (max-width: 800px) {
+    .welcome-header-title {
+        font-size: 25px;
+    }
+
+    .help-text {
+        font-size: 12px;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .welcome-header {
+        height: 220px;
+    }
+
+    .welcome-header-title {
+        flex-grow: unset;
+        font-size: 25px;
+    }
+
+    .help-text {
+        font-size: 12px;
+    }
 }
